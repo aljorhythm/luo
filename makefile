@@ -3,7 +3,7 @@ setup:
 	git config core.hooksPath .githooks
 	go mod tidy
 
-lint:
+lint: setup
 	sh .format.sh
 
 microtest:
