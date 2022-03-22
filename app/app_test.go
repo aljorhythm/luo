@@ -6,12 +6,15 @@ import (
 )
 
 func TestAppEnterRetrieveItem(t *testing.T) {
-	app := App{}
-	item := Item{}
-	itemId, err := app.EnterItem(item)
 
-	assert.NoError(t, err)
+	t.Run("Fool test", func(t *testing.T) {
+		app := App{}
+		item := Item{}
+		itemId, err := app.EnterItem(item)
 
-	retrievedItem := app.RetrieveItem(itemId)
-	assert.Equal(t, item, retrievedItem)
+		assert.NoError(t, err)
+
+		retrievedItem := app.RetrieveItem(itemId)
+		assert.Equal(t, item, retrievedItem)
+	})
 }
