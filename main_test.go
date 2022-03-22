@@ -1,7 +1,10 @@
 package luo
 
-import "testing"
+import (
+	"github.com/aljorhythm/luo/app"
+	"testing"
+)
 
 func TestMainApp(t *testing.T) {
-	_ = App{}
+	_ = app.App{}
 }

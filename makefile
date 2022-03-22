@@ -4,7 +4,7 @@ setup:
 	go mod tidy
 
 lint:
-	go fmt ./...
+	sh .format.sh
 
 microtest:
 	go test ./... -v
