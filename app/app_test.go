@@ -8,7 +8,10 @@ import (
 func TestAppEnterRetrieveItem(t *testing.T) {
 	app := App{}
 	item := Item{}
-	err := app.EnterItem(item)
+	itemId, err := app.EnterItem(item)
 
 	assert.NoError(t, err)
+
+	retrievedItem := app.RetrieveItem(itemId)
+	assert.Equal(t, item, retrievedItem)
 }
