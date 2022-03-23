@@ -5,16 +5,31 @@ import (
 	"testing"
 )
 
+type testcase struct {
+	item     Item
+	testName string
+}
+
 func TestAppEnterRetrieveItem(t *testing.T) {
 
-	t.Run("Fool test", func(t *testing.T) {
-		app := App{}
-		item := Item{}
-		itemId, err := app.EnterItem(item)
+	cases := []testcase{
+		{
+			testName: "fool test",
+			item:     Item{},
+		},
+	}
 
-		assert.NoError(t, err)
+	app := App{}
 
-		retrievedItem := app.RetrieveItem(itemId)
-		assert.Equal(t, item, retrievedItem)
-	})
+	for _, aCase := range cases {
+		t.Run(aCase.testName, func(t *testing.T) {
+			item := aCase.item
+			itemId, err := app.EnterItem(item)
+
+			assert.NoError(t, err)
+
+			retrievedItem := app.RetrieveItem(itemId)
+			assert.Equal(t, item, retrievedItem)
+		})
+	}
 }
