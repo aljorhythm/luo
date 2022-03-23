@@ -17,9 +17,16 @@ func TestAppEnterRetrieveItem(t *testing.T) {
 			testName: "fool test",
 			item:     Item{},
 		},
+
+		{
+			testName: "an item",
+			item: Item{
+				Url: "http://somewhere",
+			},
+		},
 	}
 
-	app := App{}
+	app := NewApp()
 
 	for _, aCase := range cases {
 		t.Run(aCase.testName, func(t *testing.T) {
