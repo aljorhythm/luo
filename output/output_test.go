@@ -7,12 +7,14 @@ import (
 
 type mockData struct{}
 
-func TestOutput(t *testing.T) {
+func TestOutputV1(t *testing.T) {
 	data := mockData{}
 	output := outputV1{}
 	actual := string(output.print(data))
 	expected := `
-     {}
+     {
+"version": 1
+}
 `
 	require.JSONEq(t, expected, actual)
 }
